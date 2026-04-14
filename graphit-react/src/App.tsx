@@ -1,16 +1,8 @@
-import { createGraph } from '../../../graphit/crates/wasm/pkg';
+import { createGraph } from '../../../graphit/crates/wasm/pkg/graphit_wasm';
 
 import './App.css'
 
 function App() {
-  
-  // const graphit = graphit.getHandler();
-  
-  // graphmodel = graphit.getRoot();
-  // graphmodel.payload = {};
-  
-  // graphmodel.addNextChild(vid, );
-  // graphit.init(rootVertex, optionalConfigs);
 
   const g = createGraph("Start");
   const root = g.rootVid || 0;
@@ -20,6 +12,15 @@ function App() {
 
   g.addChild(pricing_distribution_id, "Return Revenue", false);
   g.addChild(pricing_distribution_id, "Set Min & Max", false);
+
+  g.addChild(new_pricing_strategy_id, "Overwrite", false);
+
+  g.addChild(root, "Adjust Live Pricing", false);
+
+  const end_live_experiment_id = g.addChild(root, "End Live Experiment", false) || 0;
+
+  g.addChild(end_live_experiment_id, "Roll out", false);
+  g.addChild(end_live_experiment_id, "Roll back", false);
 
 
 
@@ -43,6 +44,10 @@ function App() {
           Render Graph
         </button>
       </section>
+      <pre>
+        Vertex: {g.getVertex(root)?.label}
+        Vertex: {g.getVertex(new_pricing_strategy_id)?.label}
+      </pre>
     </>
   )
 }
