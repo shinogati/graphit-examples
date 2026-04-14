@@ -25,6 +25,7 @@ function App() {
     const g = createGraph("Start");
     const root = g.rootVid!;
     const newPricingId        = g.addChild(root, "New Price Strategy", false)!;
+    g.setPayload(newPricingId, JSON.stringify({ description: "Experiment with a new pricing strategy for product X" }));
     const pricingDistId       = g.addChild(newPricingId, "Pricing Distribution", false)!;
     g.addChild(pricingDistId, "Return Revenue", false);
     g.addChild(pricingDistId, "Set Min & Max", false);
@@ -95,6 +96,10 @@ function App() {
       <button onClick={back} disabled={path.length <= 1}>
         ← Back
       </button>
+      <div>
+        <h4>Description</h4>
+        <p>{node.payload ? JSON.parse(node.payload).description : "No description available."}</p>
+      </div>
 
       <ul>
         {edges.map((e: WasmEdgeEntry) => (
