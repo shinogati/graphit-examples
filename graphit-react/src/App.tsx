@@ -1,58 +1,112 @@
-import { createGraph, WasmEdgeEntry } from '../../../graphit/crates/wasm/pkg/graphit_wasm';
+import {
+  createGraph,
+  WasmCursor,
+  WasmEdgeEntry,
+  WasmGraph,
+  WasmVertex,
+} from '../../../graphit/crates/wasm/pkg/graphit_wasm';
+import { useEffect, useState } from 'react';
+import './App.css';
 
-import './App.css'
+type GraphitState = {
+  graph: WasmGraph;
+  root: number;
+  newPricingId: number;
+  cursor: WasmCursor;
+  node: WasmVertex;
+  edges: WasmEdgeEntry[];
+  path: number[];
+};
 
 function App() {
+  const [graphitState, setGraphitState] = useState<GraphitState | null>(null);
 
-  const g = createGraph("Start");
-  const root = g.rootVid || 0;
+  useEffect(() => {
+    const g = createGraph("Start");
+    const root = g.rootVid!;
+    const newPricingId        = g.addChild(root, "New Price Strategy", false)!;
+    const pricingDistId       = g.addChild(newPricingId, "Pricing Distribution", false)!;
+    g.addChild(pricingDistId, "Return Revenue", false);
+    g.addChild(pricingDistId, "Set Min & Max", false);
+    g.addChild(newPricingId,  "Overwrite", false);
+    g.addChild(root,          "Adjust Live Pricing", false);
+    const endLiveId           = g.addChild(root, "End Live Experiment", false)!;
+    g.addChild(endLiveId, "Roll out", false);
+    g.addChild(endLiveId, "Roll back", false);
 
-  const new_pricing_strategy_id = g.addChild(root, "New Price Strategy", false) || 0;
-  const pricing_distribution_id = g.addChild(new_pricing_strategy_id, "Pricing Distribution", false) || 0;
+    const c = new WasmCursor(g);
 
-  g.addChild(pricing_distribution_id, "Return Revenue", false);
-  g.addChild(pricing_distribution_id, "Set Min & Max", false);
+    setGraphitState({
+      graph: g,
+      root,
+      newPricingId,
+      cursor: c,
+      node: c.getNode(g)!,
+      edges: c.getEdges(g) ?? [],
+      path: Array.from(c.getPath()),
+    });
+  }, []);
 
-  g.addChild(new_pricing_strategy_id, "Overwrite", false);
-
-  g.addChild(root, "Adjust Live Pricing", false);
-
-  const end_live_experiment_id = g.addChild(root, "End Live Experiment", false) || 0;
-
-  g.addChild(end_live_experiment_id, "Roll out", false);
-  g.addChild(end_live_experiment_id, "Roll back", false);
-
-
-
-  function renderGraph() {
-    console.log(g);
+  function moveTo(targetVid: number) {
+    if (!graphitState) return;
+    const { cursor, graph } = graphitState;
+    const newVid = cursor.moveTo(graph, targetVid);
+    if (newVid !== undefined) {
+      setGraphitState({
+        ...graphitState,
+        node: cursor.getNode(graph)!,
+        edges: cursor.getEdges(graph) ?? [],
+        path: Array.from(cursor.getPath()),
+      });
+    }
   }
+
+  function back() {
+    if (!graphitState) return;
+    const { cursor, graph } = graphitState;
+    const prevVid = cursor.back();
+    if (prevVid !== undefined) {
+      setGraphitState({
+        ...graphitState,
+        node: cursor.getNode(graph)!,
+        edges: cursor.getEdges(graph) ?? [],
+        path: Array.from(cursor.getPath()),
+      });
+    }
+  }
+
+  if (!graphitState) return <p>Loading...</p>;
+
+  const { graph, root, node, edges, path } = graphitState;
 
   return (
     <>
       <section id="center">
-        <div>
-          
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => renderGraph()}
-        >
+        <p>Current: <strong>{node.label}</strong> (step {node.step})</p>
+        <button className="counter" onClick={() => console.log(graphitState.cursor)}>
           Render Graph
         </button>
       </section>
-      <pre>
-        Vertex: {g.getVertex(root)?.label}
-        Vertex: {g.getVertex(new_pricing_strategy_id)?.label}
-      </pre>
-      <pre>
-        {g.getEdges(root)?.map((e: WasmEdgeEntry, i) => (<p key={i}> E {e.targetVid} </p>))}
-      </pre>
+
+      <p>
+        Path: {path.map((vid) => graph.getVertex(vid)?.label ?? vid).join(' → ')}
+      </p>
+
+      <button onClick={back} disabled={path.length <= 1}>
+        ← Back
+      </button>
+
+      <ul>
+        {edges.map((e: WasmEdgeEntry) => (
+          <li key={e.targetVid}>
+            <button onClick={() => moveTo(e.targetVid)}>
+              {graph.getVertex(e.targetVid)?.label ?? e.targetVid}
+            </button>
+          </li>
+        ))}
+      </ul>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
