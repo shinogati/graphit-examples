@@ -1,4 +1,4 @@
-import { createGraph } from '../../../graphit/crates/wasm/pkg/graphit_wasm';
+import { createGraph, WasmEdgeEntry } from '../../../graphit/crates/wasm/pkg/graphit_wasm';
 
 import './App.css'
 
@@ -47,6 +47,9 @@ function App() {
       <pre>
         Vertex: {g.getVertex(root)?.label}
         Vertex: {g.getVertex(new_pricing_strategy_id)?.label}
+      </pre>
+      <pre>
+        {g.getEdges(root)?.map((e: WasmEdgeEntry, i) => (<p key={i}> E {e.targetVid} </p>))}
       </pre>
     </>
   )
