@@ -17,5 +17,32 @@ npm create vite@latest
 cd "The most clever or awful project name"
 ```
 ```shell
-npm i @shinogati/graphit
+npm i @shinogati/graphit esbuild rollup
+```
+
+4. install dependencies to enable vite dev server to serve the wasm file.
+```shell
+npm i vite-plugin-wasm vite-plugin-top-level-await
+```
+5. edit package.json and add rollup to package resolutions:
+```json
+{
+  ...
+  },
+  "resolutions": {
+    "rollup": "npm@rollup/wasm-node"
+  }
+}
+```
+6. create or edit `vite.config.ts`:
+```json
+import { defineConfig } from 'vite'
+import wasm from 'vite-plugin-wasm'
+import topLevelAwait from 'vite-plugin-top-level-await'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [wasm(), topLevelAwait()],
+})
+
 ```
