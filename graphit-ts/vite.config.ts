@@ -5,4 +5,7 @@ import topLevelAwait from 'vite-plugin-top-level-await'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [wasm(), topLevelAwait()],
+  build: {
+    target: 'es2022',
+  },
 })

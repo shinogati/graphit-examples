@@ -1,5 +1,5 @@
 # Graphit Typescript example
-
+![Graphit Logo](./docs/img/graphit.svg)
 this is step by step setup for integrating graphit with your typescript project.
 
 we are using [Vite](https://vite.dev) to build and test [Graphit](https://github.com/shinogati/graphit) WASM interface.
@@ -43,6 +43,8 @@ import topLevelAwait from 'vite-plugin-top-level-await'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [wasm(), topLevelAwait()],
+  build: {
+    target: 'es2022',
+  },
 })
-
 ```
