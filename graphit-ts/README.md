@@ -1,5 +1,8 @@
 # Graphit Typescript example
-![Graphit Logo](./docs/img/graphit.svg)
+<p align="center">
+  <img src="./docs/img/graphit.svg" width="150vw" alt="Graphit Logo" /><br/>
+  <img src="./src/assets/graph.svg" width="500vw" alt="Graph Example" />
+</p>
 this is step by step setup for integrating graphit with your typescript project.
 
 we are using [Vite](https://vite.dev) to build and test [Graphit](https://github.com/shinogati/graphit) WASM interface.
