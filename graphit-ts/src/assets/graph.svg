@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="300px" height="150px" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:grid x="0" y="0" width="50" height="50"/>
+  </defs>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="70.899" cy="201.744" rx="24.899" ry="25.011" id="A" class="Vertex"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1;" cx="170.697" cy="101.722" rx="24.899" ry="25.011" id="B" class="Vertex"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1;" cx="170.899" cy="301.744" rx="24.899" ry="25.011" id="C" class="Vertex"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1;" cx="270.697" cy="201.722" rx="24.899" ry="25.011" id="D" class="Vertex"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1;" cx="420.697" cy="101.722" rx="24.899" ry="25.011" id="E" class="Vertex"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1;" cx="420.697" cy="201.722" rx="24.899" ry="25.011" id="F" class="Vertex"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1;" cx="420.899" cy="301.722" rx="24.899" ry="25.011" id="G" class="Vertex"/>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1;" cx="570.899" cy="201.722" rx="24.899" ry="25.011" id="H" class="Vertex"/>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="60.703" y="210.382" class="VLabel" id="L_A">A</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="161.01" y="111.369" id="L_B">B</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="159.098" y="311.722" id="L_C">C</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="260.982" y="211.429" id="L_D">D</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="408.915" y="109.988" id="L_E">E</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="411.16" y="211.265" id="L_F">F</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="409.748" y="311.712" id="L_G">G</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="559.946" y="211.815" id="L_H">H</text>
+  <path d="M 41.105 198 H 114.512 L 114.512 192 L 130.703 200 L 114.512 208 L 114.512 202 H 41.105 V 198 Z" bx:shape="arrow 41.105 192 89.598 16 4 16.191 0 1@f0dccff6" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0.695484, -0.718541, 0.718541, 0.695484, 34.654988, -48.929272)" class="Edge" id="E_A_B"/>
+  <path d="M 59.481 206.526 H 173.436 L 173.436 200.267 L 189.133 208.612 L 173.436 216.956 L 173.436 210.698 H 59.481 V 206.526 Z" bx:shape="arrow 59.481 200.267 129.652 16.689 4.172 15.697 0 1@571d87bc" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 124.307px 208.612px;" transform="matrix(0.82025, 0.572006, -0.572006, 0.82025, 370.982628, -56.483837)" class="Edge" id="E_E_H"/>
+  <ellipse style="stroke-width: 1; stroke: rgb(0, 0, 0); paint-order: stroke markers; fill: rgb(55, 128, 186);" cx="23.053" cy="199.807" rx="5.853" ry="5.879" class="RC"/>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 20.1px;" x="4.545" y="128.749" class="RC">Root</text>
+  <path style="fill: none; stroke: rgb(0, 0, 0); transform-box: fill-box; transform-origin: 49.9749% -0.00163%;" d="M 21.823 193.748 L 23 258.573" transform="matrix(-0.998981, -0.045134, 0.045134, -0.998981, -0.000002, -0.000007)" class="RC"/>
+  <path style="fill: none; stroke: rgb(0, 0, 0);" d="M 28.95 199.866 L 45.997 200"/>
+  <path d="M 41.105 198 H 114.512 L 114.512 192 L 130.703 200 L 114.512 208 L 114.512 202 H 41.105 V 198 Z" bx:shape="arrow 41.105 192 89.598 16 4 16.191 0 1@f0dccff6" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 85.904px 200px;" transform="matrix(0.707107, 0.707107, -0.707107, 0.707107, 34.003152, 52.20823)" class="Edge" id="E_A_C"/>
+  <path d="M 41.105 198 H 114.512 L 114.512 192 L 130.703 200 L 114.512 208 L 114.512 202 H 41.105 V 198 Z" bx:shape="arrow 41.105 192 89.598 16 4 16.191 0 1@f0dccff6" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 85.904px 200px;" transform="matrix(0.707107, -0.707107, 0.707107, 0.707107, 135.138307, 52.579601)" class="Edge" id="E_C_D"/>
+  <path d="M 41.105 198 H 114.512 L 114.512 192 L 130.703 200 L 114.512 208 L 114.512 202 H 41.105 V 198 Z" bx:shape="arrow 41.105 192 89.598 16 4 16.191 0 1@f0dccff6" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 85.904px 200px;" transform="matrix(0.707107, 0.707107, -0.707107, 0.707107, 135.122842, -49.465312)" class="Edge" id="E_B_D"/>
+  <path d="M 95.793 200.148 H 230.479 L 230.479 194.148 L 244.448 202.148 L 230.479 210.148 L 230.479 204.148 H 95.793 V 200.148 Z" bx:shape="arrow 95.793 194.148 148.655 16 4 13.969 0 1@71d2459a" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 170.121px 202.148px;" transform="matrix(0, 1, -1, 0, 0.764923, -0.774065)" class="Edge" id="E_B_C"/>
+  <path d="M 296.026 199.605 H 386.074 L 386.074 193.605 L 395.415 201.605 L 386.074 209.605 L 386.074 203.605 H 296.026 V 199.605 Z" bx:shape="arrow 296.026 193.605 99.389 16 4 9.34 0 1@79939010" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 345.721px 201.605px;" class="Edge" id="E_D_F"/>
+  <path d="M 446.211 199.76 H 535.914 L 535.914 193.76 L 545.218 201.76 L 535.914 209.76 L 535.914 203.76 H 446.211 V 199.76 Z" bx:shape="arrow 446.211 193.76 99.008 16 4 9.304 0 1@010c3883" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 495.716px 201.76px;" class="Edge" id="E_F_H"/>
+  <path d="M 196.394 99.876 H 375.965 L 375.965 93.876 L 394.589 101.876 L 375.965 109.876 L 375.965 103.876 H 196.394 V 99.876 Z" bx:shape="arrow 196.394 93.876 198.195 16 4 18.625 0 1@440e61de" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 295.494px 101.876px;" class="Edge" id="E_B_E"/>
+  <path d="M 195.981 298.166 H 376.525 L 376.525 292.166 L 395.251 300.166 L 376.525 308.166 L 376.525 302.166 H 195.981 V 298.166 Z" bx:shape="arrow 195.981 292.166 199.27 16 4 18.726 0 1@6ce0d36e" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 295.618px 300.166px;" class="Edge" id="E_C_G"/>
+  <path d="M 59.481 206.525 H 173.436 L 173.436 200.267 L 189.133 208.611 L 173.436 216.956 L 173.436 210.697 H 59.481 V 206.525 Z" bx:shape="arrow 59.481 200.267 129.652 16.689 4.172 15.697 0 1@d35431b2" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-box: fill-box; transform-origin: -0.13673% 50.6243%;" transform="matrix(0.819933, -0.57246, 0.57246, 0.819933, 385.272368, 84.23665)" class="Edge" id="E_G_H"/>
+  <path d="M 373.998 180.668 H 491.558 L 491.558 174.668 L 503.752 182.668 L 491.558 190.668 L 491.558 184.668 H 373.998 V 180.668 Z" bx:shape="arrow 373.998 174.668 129.754 16 4 12.194 0 1@29960e76" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-box: fill-box; transform-origin: -0.00791% 50.0669%;" transform="matrix(0.839531, -0.543311, 0.543311, 0.839531, -83.758728, 2.881444)" class="Edge" id="E_D_E"/>
+  <path d="M 373.998 180.668 H 491.558 L 491.558 174.668 L 503.752 182.668 L 491.558 190.668 L 491.558 184.668 H 373.998 V 180.668 Z" bx:shape="arrow 373.998 174.668 129.754 16 4 12.194 0 1@29960e76" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1; transform-origin: 373.988px 182.679px;" transform="matrix(0.832532, 0.553977, -0.553977, 0.832532, -82.11531, 32.699126)" class="Edge" id="E_D_G"/>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="100" y="155.669">3</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="92.487" y="267.679">6</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="150" y="212.698">4</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="215.633" y="143.965">4</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="200" y="251.425">8</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="270.934" y="325.483">11</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="314.633" y="151.807">-4</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="350" y="193.965">5</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="322.447" y="267.37">2</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="450" y="193.965">1</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="484.424" y="143.965">9</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="491.729" y="284.208">2</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="270.934" y="93.965">11</text>
+</svg>
