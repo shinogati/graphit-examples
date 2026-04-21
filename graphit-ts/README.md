@@ -12,9 +12,9 @@ we are using [Vite](https://vite.dev) to build and test [Graphit](https://github
 npm create vite@latest
 ```
 2. choose your package name and select **Vanila** then **TypeScript** then **No**
-![project name](./docs/img/create-vite.png)
-![typescript](./docs/img/typescript.png)
-![no](./docs/img/no.png)
+<img src="./docs/img/create-vite.png" width="250vw" alt="project name" />
+<img src="./docs/img/typescript.png" width="250vw" alt="typescript" />
+<img src="./docs/img/no.png" width="250vw" alt="no" />
 3. go to project root directory and install graphit wasm library
 ```shell
 cd "The most clever or awful project name"
