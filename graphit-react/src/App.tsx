@@ -1,115 +1,55 @@
-import {
-  createGraph,
-  WasmCursor,
-  WasmEdgeEntry,
-  WasmGraph,
-  WasmVertex,
-} from '../../../graphit/crates/wasm/pkg/graphit_wasm';
-import { useEffect, useState } from 'react';
-import './App.css';
+import viteLogo from './assets/vite.svg'
+import graphitLogo from './assets/graphit.svg'
+import heroImg from './assets/hero.png'
 
-type GraphitState = {
-  graph: WasmGraph;
-  root: number;
-  newPricingId: number;
-  cursor: WasmCursor;
-  node: WasmVertex;
-  edges: WasmEdgeEntry[];
-  path: number[];
-};
+
+import { useState } from 'react';
+import './App.css';
+import NextNavigator from './NextNavigator';
+import GraphView from './GraphView';
+import PayloadView from './PayloadView';
+import { GraphitContext, type GraphitCtx } from './graphit_context';
+import GCTX from './graphit_scheme';
+
 
 function App() {
-  const [graphitState, setGraphitState] = useState<GraphitState | null>(null);
-
-  useEffect(() => {
-    const g = createGraph("Start");
-    const root = g.rootVid!;
-    const newPricingId        = g.addChild(root, "New Price Strategy", false)!;
-    g.setPayload(newPricingId, JSON.stringify({ description: "Experiment with a new pricing strategy for product X" }));
-    const pricingDistId       = g.addChild(newPricingId, "Pricing Distribution", false)!;
-    g.addChild(pricingDistId, "Return Revenue", false);
-    g.addChild(pricingDistId, "Set Min & Max", false);
-    g.addChild(newPricingId,  "Overwrite", false);
-    g.addChild(root,          "Adjust Live Pricing", false);
-    const endLiveId           = g.addChild(root, "End Live Experiment", false)!;
-    g.addChild(endLiveId, "Roll out", false);
-    g.addChild(endLiveId, "Roll back", false);
-
-    const c = new WasmCursor(g);
-
-    setGraphitState({
-      graph: g,
-      root,
-      newPricingId,
-      cursor: c,
-      node: c.getNode(g)!,
-      edges: c.getEdges(g) ?? [],
-      path: Array.from(c.getPath()),
-    });
-  }, []);
-
-  function moveTo(targetVid: number) {
-    if (!graphitState) return;
-    const { cursor, graph } = graphitState;
-    const newVid = cursor.moveTo(graph, targetVid);
-    if (newVid !== undefined) {
-      setGraphitState({
-        ...graphitState,
-        node: cursor.getNode(graph)!,
-        edges: cursor.getEdges(graph) ?? [],
-        path: Array.from(cursor.getPath()),
-      });
-    }
+  const [graphitState, setGraphitState] = useState(GCTX);
+  const onNavigate = (gctx: GraphitCtx) => {
+    setGraphitState({ ...gctx });
   }
 
-  function back() {
-    if (!graphitState) return;
-    const { cursor, graph } = graphitState;
-    const prevVid = cursor.back();
-    if (prevVid !== undefined) {
-      setGraphitState({
-        ...graphitState,
-        node: cursor.getNode(graph)!,
-        edges: cursor.getEdges(graph) ?? [],
-        path: Array.from(cursor.getPath()),
-      });
-    }
-  }
-
-  if (!graphitState) return <p>Loading...</p>;
-
-  const { graph, root, node, edges, path } = graphitState;
 
   return (
     <>
-      <section id="center">
-        <p>Current: <strong>{node.label}</strong> (step {node.step})</p>
-        <button className="counter" onClick={() => console.log(graphitState.cursor)}>
-          Render Graph
-        </button>
-      </section>
+      <GraphitContext value={graphitState}>
+            <>
+              <section id="center">
+                <div className="hero">
+                  <img src={heroImg} className="base" width="170" height="179" />
+                  <img src={graphitLogo} className="framework" alt="TypeScript logo" />
+                  <img src={viteLogo} className="vite" alt="Vite logo" />
+                </div>
+                <div>
+                  <h1>Graph it!</h1>
+                  <GraphView />
+                </div>
+                <p id="current" className="navstyle"></p>
+              </section>
 
-      <p>
-        Path: {path.map((vid) => graph.getVertex(vid)?.label ?? vid).join(' → ')}
-      </p>
-
-      <button onClick={back} disabled={path.length <= 1}>
-        ← Back
-      </button>
-      <div>
-        <h4>Description</h4>
-        <p>{node.payload ? JSON.parse(node.payload).description : "No description available."}</p>
-      </div>
-
-      <ul>
-        {edges.map((e: WasmEdgeEntry) => (
-          <li key={e.targetVid}>
-            <button onClick={() => moveTo(e.targetVid)}>
-              {graph.getVertex(e.targetVid)?.label ?? e.targetVid}
-            </button>
-          </li>
-        ))}
-      </ul>
+              <section id="next-steps">
+                <div id="docs">
+                  <h2><button id="back"></button></h2>
+                  <p id="path"></p>
+                  <NextNavigator onNavigate={onNavigate} />
+                </div>
+                <div id="social">
+                  <h2>Payload</h2>
+                  <PayloadView />
+                </div>
+              </section>
+              <section id="spacer"></section>
+            </>
+      </GraphitContext>
     </>
   );
 }

@@ -56,13 +56,6 @@ g.setPayload(D_VID, JSON.stringify({
     { Target: G_VID, Cost: 2, LBL: "E_D_G" }]
 } as VertexData))
 
-// g.setPayload(root_vertex_id, JSON.stringify({
-//   edgeData: [
-//     { Target: E_VID, Cost: -4, LBL: "E_D_E" }, 
-//     { Target: F_VID, Cost: 5, LBL: "E_D_F" }, 
-//     { Target: G_VID, Cost: 2, LBL: "E_D_G" }]
-// } as VertexData))
-
 g.setPayload(E_VID, JSON.stringify({
   edgeData: [
     { Target: H_VID, Cost: 9, LBL: "E_E_H" }
