@@ -4,4 +4,4 @@
 </p>
 
 * <a href="./graphit-ts/">Vite + TypesScript Example</a>
-* <a href="./graphit-react/">Vite + TypesScript + React Example</a>
+* <a href="./graphit-react/">~~Vite + TypesScript + React Example~~</a>
