@@ -1,17 +1,17 @@
-import type { WasmCursor, WasmEdgeEntry, WasmGraph } from "@shinogati/graphit";
+import type { WasmCursor, WasmEdgeEntry } from "@shinogati/graphit";
 import type { VertexData } from "./model";
 
-export function setupNextList(element: HTMLUListElement, cursor: WasmCursor, graph: WasmGraph, onNavigate: () => void, v_edges: string[]) {
+export function setupNextList(element: HTMLUListElement, cursor: WasmCursor, onNavigate: () => void, v_edges: string[]) {
     element.style = "display: flex; flex-direction: row; width: auto; justify-content: center; align-items: center;";
     element.innerHTML = ""
-    const edges = cursor.getEdges(graph) ?? []
+    const edges = cursor.getEdges() ?? []
     edges.forEach((e: WasmEdgeEntry) => {
         const btn: HTMLButtonElement = document.createElement("button")
         btn.id = `fw-${e.targetVid}`
         btn.classList.add('navstyle')
         btn.style = "margin: 0"
-        btn.innerText = graph.getVertex(e.targetVid)?.label!
-        const current_payload = cursor.getNode(graph)?.payload
+        btn.innerText = cursor.getGraph().getVertex(e.targetVid)!.label
+        const current_payload = cursor.getNode()?.payload
         let lable_data = ""
         if(current_payload) {
             const vdata = JSON.parse(current_payload) as VertexData
@@ -23,7 +23,7 @@ export function setupNextList(element: HTMLUListElement, cursor: WasmCursor, gra
         }
 
         btn.addEventListener('click', () => {
-            cursor.moveTo(graph, e.targetVid)
+            cursor.moveTo(e.targetVid)
             lable_data.length > 1 && v_edges.push(lable_data)
             onNavigate()
         })
@@ -39,10 +39,10 @@ export function setupNextList(element: HTMLUListElement, cursor: WasmCursor, gra
     }
 }
 
-export function setupNextNavigator(element: HTMLDivElement, cursor: WasmCursor, graph: WasmGraph) {
+export function setupNextNavigator(element: HTMLDivElement, cursor: WasmCursor) {
     element.style = "display: flex; flex-direction: column; padding: 3px; align-items: center;";
 
-    const node = cursor.getNode(graph)!
+    const node = cursor.getNode()!
 
     const prevDiv = document.createElement('div');
     prevDiv.classList.add('navstyle')

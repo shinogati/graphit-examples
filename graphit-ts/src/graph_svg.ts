@@ -8,7 +8,7 @@ export function setupGraphSVG(element: HTMLDivElement, cursor: WasmCursor, graph
     const svgDoc = parser.parseFromString(graphitSvgRaw, "image/svg+xml");
     const svg = svgDoc.querySelector("svg")!;
     svg.style.height = "auto";
-    svg.style.width = "50vw";
+    svg.style.width = "30vw";
     const current = graph.getVertex(cursor.currentVid)!
     const lbl =  `#${current.label}`
     const match_element = svg.querySelector<SVGElement>(lbl)

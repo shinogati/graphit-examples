@@ -10,14 +10,14 @@
   },
   "devDependencies": {
     "typescript": "~6.0.2",
-    "vite": "^8.0.4",
+    "vite": "^8.0.10",
     "vite-plugin-top-level-await": "^1.6.0",
     "vite-plugin-wasm": "^3.6.0"
   },
   "dependencies": {
-    "@shinogati/graphit": "^0.1.0",
+    "@shinogati/graphit": "^0.0.8",
     "esbuild": "^0.28.0",
-    "rollup": "^4.60.1"
+    "rollup": "^4.60.2"
   },
   "resolutions": {
     "rollup": "npm@rollup/wasm-node"

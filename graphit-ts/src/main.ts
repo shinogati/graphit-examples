@@ -136,7 +136,7 @@ function pathUI(path: number[]): HTMLDivElement {
 
 
 function render() {
-  const node = c.getNode(g)!
+  const node = c.getNode()!
   const path = Array.from(c.getPath())
 
   const currnet = document.querySelector<HTMLParagraphElement>('#current')!
@@ -151,10 +151,10 @@ function render() {
 
   document.querySelector<HTMLButtonElement>('#back')!.disabled = path.length <= 1
 
-  setupNextList(document.querySelector<HTMLUListElement>('#next-list')!, c, g, render, visited_edge)
-  setupNextNavigator(document.querySelector<HTMLDivElement>('#next-navigator')!, c, g)
+  setupNextList(document.querySelector<HTMLUListElement>('#next-list')!, c, render, visited_edge)
+  setupNextNavigator(document.querySelector<HTMLDivElement>('#next-navigator')!, c)
   setupGraphSVG(document.querySelector<HTMLDivElement>('#graphExample')!, c, g, visited_edge)
-  setupPayload(document.querySelector<HTMLDivElement>('#payload')!, c, g)
+  setupPayload(document.querySelector<HTMLDivElement>('#payload')!, c)
 }
 setupBack(document.querySelector<HTMLButtonElement>('#back')!, c, render, visited_edge)
 render()

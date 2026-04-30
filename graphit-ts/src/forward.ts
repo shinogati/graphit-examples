@@ -1,7 +1,7 @@
-import type { WasmCursor, WasmGraph } from "@shinogati/graphit";
+import type { WasmCursor } from "@shinogati/graphit";
 
-export function setupForward(element: HTMLButtonElement, cursor: WasmCursor, graph: WasmGraph, target: number) {
-    const prevVid = cursor.moveTo(graph, target);
+export function setupForward(element: HTMLButtonElement, cursor: WasmCursor, target: number) {
+    const prevVid = cursor.moveTo(target);
     if (prevVid !== undefined) {
       // disable button here ?
     }
